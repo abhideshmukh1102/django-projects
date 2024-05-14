@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class ProductTable(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)
-    price=models.DecimalField(max_digits=10,decimal_places=3)
+    price=models.IntegerField()
     description=models.CharField(max_length=100)
     quantity=models.PositiveIntegerField(default=0)
     category=models.CharField(max_length=100)

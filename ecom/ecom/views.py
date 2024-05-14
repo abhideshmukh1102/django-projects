@@ -47,7 +47,7 @@ def register_user(request):
          user=User.objects.create(username=uname)
          user.set_password(upass)
          user.save()
-         return redirect(" /login")
+         return redirect("/login")
    return render(request,"user/register.html")
 
 
@@ -254,7 +254,7 @@ def make_payment(request):
    for product in product_in_cart:
       total_price+=(product.pid.price*product.quantity)  
    client = razorpay.Client(auth=("rzp_test_KOj49wnPR6EjnV", "2fiaqoup3ixyWGnSc3OCCRhQ"))
-   data = { "amount":int(total_price*100), "currency": "INR", "receipt": "order_rcptid_11" }
+   data = { "amount":total_price*100, "currency": "INR", "receipt": "order_rcptid_11" }
    payment = client.order.create(data=data)
    print(payment)
    return render(request,"home/pay.html",context=data)

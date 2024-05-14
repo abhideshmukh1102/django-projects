@@ -23,7 +23,7 @@ urlpatterns = [
     path("admin/", views.admin_panel),
     path("",views.home),    
     path("login/", views.login_user),
-    path("register/", views.register_user),
+    path("register/",views.register_user),
     path("logout/", views.logout_user),
     path("admin/product/",include("product.product_urls")),
     path("category/<category_value>", views.filter_by_category),
